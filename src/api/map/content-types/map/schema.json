@@ -38,11 +38,11 @@
       "relation": "oneToOne",
       "target": "api::district.district"
     },
-    "content": {
-      "type": "blocks"
-    },
     "description": {
       "type": "text"
+    },
+    "content": {
+      "type": "blocks"
     }
   }
 }
