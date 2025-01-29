@@ -563,6 +563,65 @@ export interface ApiMapMap extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiUmkmUmkm extends Struct.CollectionTypeSchema {
+  collectionName: 'umkms';
+  info: {
+    description: '';
+    displayName: 'UMKM';
+    pluralName: 'umkms';
+    singularName: 'umkm';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    additional_information: Schema.Attribute.Text;
+    address: Schema.Attribute.Text;
+    category: Schema.Attribute.Enumeration<
+      [
+        'Makanan dan Minuman',
+        'Pakaian dan Aksesoris',
+        'Kesehatan dan Kecantikan',
+        'Elektronik',
+        'Perabotan',
+        'Otomotif',
+        'Kerajinan',
+        'Lainnya',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    gallery: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::umkm.umkm'> &
+      Schema.Attribute.Private;
+    location_latitude: Schema.Attribute.Decimal;
+    location_longitude: Schema.Attribute.Decimal;
+    name: Schema.Attribute.String;
+    open_hour: Schema.Attribute.String;
+    products: Schema.Attribute.Component<'components.product', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    RW: Schema.Attribute.Enumeration<
+      ['RW 01', 'RW 02', 'RW 03', 'RW 04', 'RW 05', 'RW 06', 'RW 07', 'RW 08']
+    >;
+    slug: Schema.Attribute.UID<'name'>;
+    social_links_gojek: Schema.Attribute.Text;
+    social_links_grab: Schema.Attribute.Text;
+    social_links_shopee: Schema.Attribute.Text;
+    social_links_tokopedia: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    whatsapp_number: Schema.Attribute.String;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1078,6 +1137,7 @@ declare module '@strapi/strapi' {
       'api::document-data.document-data': ApiDocumentDataDocumentData;
       'api::document-type.document-type': ApiDocumentTypeDocumentType;
       'api::map.map': ApiMapMap;
+      'api::umkm.umkm': ApiUmkmUmkm;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

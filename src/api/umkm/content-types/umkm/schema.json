@@ -1,0 +1,109 @@
+{
+  "kind": "collectionType",
+  "collectionName": "umkms",
+  "info": {
+    "singularName": "umkm",
+    "pluralName": "umkms",
+    "displayName": "UMKM",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "whatsapp_number": {
+      "type": "string"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Makanan dan Minuman",
+        "Pakaian dan Aksesoris",
+        "Kesehatan dan Kecantikan",
+        "Elektronik",
+        "Perabotan",
+        "Otomotif",
+        "Kerajinan",
+        "Lainnya"
+      ]
+    },
+    "RW": {
+      "type": "enumeration",
+      "enum": [
+        "RW 01",
+        "RW 02",
+        "RW 03",
+        "RW 04",
+        "RW 05",
+        "RW 06",
+        "RW 07",
+        "RW 08"
+      ]
+    },
+    "open_hour": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "location_latitude": {
+      "type": "decimal"
+    },
+    "location_longitude": {
+      "type": "decimal"
+    },
+    "social_links_gojek": {
+      "type": "text"
+    },
+    "social_links_grab": {
+      "type": "text"
+    },
+    "social_links_tokopedia": {
+      "type": "text"
+    },
+    "social_links_shopee": {
+      "type": "text"
+    },
+    "products": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.product"
+    },
+    "additional_information": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "address": {
+      "type": "text"
+    }
+  }
+}
